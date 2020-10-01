@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+
+struct node
+{
+	int data;
+	node* next;
+}*start,*save,*ptr;
+
+int main()
+{
+   start=NULL;
+   char ch='y';
+   
+   while(ch=='Y' || ch=='y')
+   {
+   	  ptr = new node;
+   	  cout<<"enter the value"<<endl;
+   	  cin>>ptr->data;
+   	  ptr->next=NULL;
+   	  
+   	  if(start==NULL)
+   	  {
+   	  	start=ptr;
+		 }
+		 else
+		 {
+		     save=start;
+		     start=ptr;
+		     ptr->next=save;
+		 }
+		 
+		 cout<<"want to enter more node  Y|N"<<endl;
+		 cin>>ch;
+	   }	
+	   
+	   while(start!=NULL)
+	   {
+	   	cout<<start->data<<endl;
+	   	start=start->next;
+	   }
+}
